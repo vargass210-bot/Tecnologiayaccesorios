@@ -37,8 +37,22 @@
 
         .main-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; }
 
-        .product-gallery { position: sticky; top: 100px; }
-        .main-img { width: 100%; border-radius: 24px; background: #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .product-gallery { position: sticky; top: 100px; text-align: center; }
+        
+        /* Efecto visual interactivo moderno */
+        .main-img { 
+            width: 100%; 
+            max-width: 500px;
+            border-radius: 24px; 
+            background: #fff; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05); 
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .main-img:hover {
+            transform: scale(1.03) translateY(-5px);
+            box-shadow: 0 30px 50px rgba(10,25,47,0.15);
+        }
 
         .badge-verified { color: var(--success); font-weight: 700; display: flex; align-items: center; gap: 5px; margin-bottom: 10px; }
         h1 { font-size: 2.8rem; font-weight: 800; margin: 0 0 20px 0; color: var(--brand-blue); line-height: 1.1; }
@@ -50,14 +64,29 @@
         .value-props { list-style: none; padding: 0; margin: 30px 0; }
         .value-props li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 1.1rem; }
 
-        .checkout-card { background: white; padding: 40px; border-radius: 30px; border: 1px solid #eee; box-shadow: 0 30px 60px rgba(0,0,0,0.08); }
+        .checkout-card { background: white; padding: 40px; border-radius: 30px; border: 1px solid #eee; box-shadow: 0 30px 60px rgba(0,0,0,0.08); position: sticky; top: 100px; }
 
+        /* Botón Dorado de Alta Conversión */
         .btn-cta { 
-            background: var(--brand-blue); color: white; padding: 22px; width: 100%; display: block; 
-            text-align: center; text-decoration: none; border-radius: 16px; font-weight: 800; 
-            font-size: 1.2rem; transition: 0.3s; box-sizing: border-box;
+            background: var(--accent-gold); 
+            color: var(--brand-blue); 
+            padding: 22px; 
+            width: 100%; 
+            display: block; 
+            text-align: center; 
+            text-decoration: none; 
+            border-radius: 16px; 
+            font-weight: 800; 
+            font-size: 1.25rem; 
+            transition: 0.3s; 
+            box-sizing: border-box;
+            box-shadow: 0 8px 15px rgba(197,160,89,0.2);
         }
-        .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(10,25,47,0.2); }
+        .btn-cta:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 15px 25px rgba(197,160,89,0.4); 
+            filter: brightness(1.08);
+        }
 
         /* SECCION RESEÑAS INFINITAS */
         .testimonials { background: var(--bg-light); padding: 80px 0; overflow: hidden; margin-top: 60px; }
@@ -75,9 +104,21 @@
 
         .guarantee-section { background: white; padding: 40px; border-radius: 30px; margin: 40px 0; display: flex; align-items: center; gap: 30px; border: 1px solid #eee; }
 
+        /* Estilos del Acordeón de FAQs */
+        .faq-section { max-width: 800px; margin: 60px auto; padding: 0 20px; }
+        .faq-title { text-align: center; font-size: 2.2rem; font-weight: 800; color: var(--brand-blue); margin-bottom: 40px; }
+        .faq-item { background: white; border: 1px solid #eee; border-radius: 16px; margin-bottom: 15px; overflow: hidden; transition: 0.3s; }
+        .faq-question { padding: 20px 25px; font-weight: 800; color: var(--brand-blue); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+        .faq-answer { padding: 0 25px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease-out; color: #555; font-size: 0.95rem; }
+        .faq-item.active { border-color: var(--accent-gold); box-shadow: 0 10px 20px rgba(0,0,0,0.02); }
+        .faq-item.active .faq-answer { padding: 0 25px 20px 25px; max-height: 200px; }
+        .faq-icon { transition: transform 0.3s; font-size: 1.2rem; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+
         @media (max-width: 900px) {
             .main-container { grid-template-columns: 1fr; }
             .product-gallery { position: relative; top: 0; }
+            .checkout-card { position: relative; top: 0; padding: 25px; }
             h1 { font-size: 2.2rem; }
         }
     </style>
@@ -93,20 +134,28 @@
 </header>
 
 <div class="main-container">
+    <!-- COLUMNA IZQUIERDA: CONTENIDO VISUAL Y VALOR (AIDA) -->
     <div class="content-left">
         <div class="product-gallery">
             <img src="nokia-principal.png" alt="Nokia 110 4G" class="main-img">
         </div>
         
+        <!-- Bloque del Deseo (Fórmula AIDA) -->
+        <div style="margin-top: 40px; padding: 20px 10px;">
+            <h2 style="color: var(--brand-blue); font-weight: 800;">La reinvención de un clásico indestructible</h2>
+            <p style="font-size: 1.1rem; color: #555;">El <strong>Nokia 110 4G</strong> está pensado para quienes buscan practicidad y resistencia real sin complicaciones. Equipado con señal de voz de alta definición (VoLTE) gracias a su potente antena 4G, es el compañero perfecto para el trabajo diario, viajes al interior, o como un segundo teléfono sumamente confiable.</p>
+        </div>
+
         <div class="guarantee-section">
             <span style="font-size: 3rem;">🛡️</span>
             <div>
                 <h3 style="margin:0">Garantía de Satisfacción Total</h3>
-                <p style="margin:5px 0 0 0; color: #666; font-size: 0.95rem;">Tenés 30 días para probar el equipo. Si no cumple tus expectativas, el envío de devolución corre por nuestra cuenta.</p>
+                <p style="margin:5px 0 0 0; color: #666; font-size: 0.95rem;">Tenés 30 días para probar el equipo. Si no cumple tus expectativas, la devolución es 100% gratuita y gestionada por nosotros.</p>
             </div>
         </div>
     </div>
 
+    <!-- COLUMNA DERECHA: ACCIÓN Y CHECKOUT -->
     <div class="content-right">
         <div class="checkout-card">
             <div class="badge-verified">✓ Stock Disponible para Envío Inmediato</div>
@@ -119,23 +168,25 @@
             </div>
 
             <ul class="value-props">
-                <li><b>🔋 Autonomía sin límites:</b> Olvidate del cargador por días.</li>
-                <li><b>📶 Conexión 4G VoLTE:</b> Máxima señal en cualquier lugar.</li>
-                <li><b>🛠️ Construcción Robusta:</b> Diseñado para durar años.</li>
-                <li><b>📞 Doble Ranura SIM:</b> Libertad total de operadoras.</li>
+                <li><b>🔋 Autonomía sin límites:</b> Olvidate del cargador por días enteros de uso continuo.</li>
+                <li><b>📶 Conexión 4G VoLTE:</b> Claridad de llamada HD y señal potente en rutas o el campo.</li>
+                <li><b>🛠️ Construcción Robusta:</b> Materiales de alta resistencia hechos para soportar caídas y golpes.</li>
+                <li><b>📞 Doble Ranura SIM:</b> Usá dos líneas en simultáneo sin problemas de operadoras.</li>
             </ul>
 
-            <a href="https://wa.me/543704344297?text=Hola!%20Quiero%20el%20Nokia%20110%204G%20con%20envío%20gratis%20a%20todo%20el%20país" class="btn-cta" onclick="fbq('track', 'Contact');">
+            <!-- Botón Optimizado a Tiendanube + Pixel InitiateCheckout -->
+            <a href="https://quartadimension.mitiendanube.com/productos/nokia-110-4g/" class="btn-cta" onclick="fbq('track', 'InitiateCheckout');">
                 ADQUIRIR AHORA
             </a>
             
-            <p style="text-align: center; font-size: 0.8rem; color: #999; margin-top: 20px;">
-                💳 Pagá con total seguridad vía Transferencia o Tarjeta.
+            <p style="text-align: center; font-size: 0.85rem; color: #888; margin-top: 20px; font-weight: 600;">
+                💳 Pagá de forma segura en Tiendanube con Tarjeta, Transferencia o Efectivo.
             </p>
         </div>
     </div>
 </div>
 
+<!-- TESTIMONIOS -->
 <section class="testimonials">
     <h2 style="text-align: center; font-size: 2.2rem; font-weight: 800; margin-bottom: 50px; color: var(--brand-blue);">Lo que dicen nuestros compradores</h2>
     <div class="testimonial-track">
@@ -184,10 +235,51 @@
     </div>
 </section>
 
+<!-- SECCIÓN PREGUNTAS FRECUENTES (FAQ) -->
+<section class="faq-section">
+    <h2 class="faq-title">Preguntas Frecuentes</h2>
+    
+    <div class="faq-item">
+        <div class="faq-question">¿Tiene garantía el teléfono? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Sí, todos nuestros equipos cuentan con garantía oficial de Quarta Dimension. Tenés 30 días de prueba para asegurar que el equipo cumpla tus expectativas; de lo contrario, podés devolverlo gratis.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">¿Cuánto tarda en llegar el envío? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">El envío es 100% gratis a toda la Argentina. Los despachos se realizan en el día y suelen demorar de 2 a 4 días hábiles en llegar a tu puerta, dependiendo de tu localidad.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">¿Funciona con cualquier empresa de telefonía? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">¡Sí! Al ser Dual SIM y estar completamente liberado, funciona con Personal, Claro o Movistar de forma simultánea. Solo necesitás insertar tu chip actual.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">¿Qué medios de pago aceptan? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">A través de nuestra tienda online en Tiendanube, podés abonar de forma segura utilizando tarjetas de crédito, débito, transferencia bancaria (con descuento) o efectivo a través de Rapipago/Pago Fácil.</div>
+    </div>
+</section>
+
 <footer style="background: var(--brand-blue); color: #fff; padding: 60px 20px; text-align: center;">
     <p style="margin:0; opacity: 0.8;">Quarta Dimension Argentina | Especialistas en Tecnología de Confianza</p>
     <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.5;">© 2026 Todos los derechos reservados.</p>
 </footer>
+
+<!-- Script interactivo de FAQs -->
+<script>
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+            const faqItem = button.parentElement;
+            
+            // Cerrar otros abiertos si es necesario (opcional)
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) item.classList.remove('active');
+            });
+            
+            faqItem.classList.toggle('active');
+        });
+    });
+</script>
 
 </body>
 </html>
