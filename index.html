@@ -35,9 +35,11 @@
         .logo-box b { font-size: 1.4rem; letter-spacing: 1px; }
         .status-pill { background: var(--accent-gold); color: var(--brand-blue); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; }
 
-        .main-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: start; } /* Corrección sticky */
+        .main-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: start; }
 
-        .product-gallery { position: sticky; top: 120px; text-align: center; } /* Corrección sticky */
+        /* Contenedor izquierdo reservado solo para la imagen fija */
+        .content-left { position: sticky; top: 120px; }
+        .product-gallery { text-align: center; }
         
         .main-img { 
             width: 100%; 
@@ -46,15 +48,14 @@
             background: #fff; 
             box-shadow: 0 20px 40px rgba(0,0,0,0.05); 
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-            cursor: pointer;
         }
         .main-img:hover {
-            transform: scale(1.03) translateY(-5px);
-            box-shadow: 0 30px 50px rgba(10,25,47,0.15);
+            transform: scale(1.02) translateY(-3px);
+            box-shadow: 0 30px 50px rgba(10,25,47,0.12);
         }
 
         .badge-verified { color: var(--success); font-weight: 700; display: flex; align-items: center; gap: 5px; margin-bottom: 10px; }
-        h1 { font-size: 2.8rem; font-weight: 800; margin: 0 0 20px 0; color: var(--brand-blue); line-height: 1.1; }
+        h1 { font-size: 2.5rem; font-weight: 800; margin: 0 0 20px 0; color: var(--brand-blue); line-height: 1.1; }
         
         .price-tag { margin: 30px 0; }
         .price-now { font-size: 3.5rem; font-weight: 800; color: var(--brand-blue); }
@@ -63,12 +64,12 @@
         .value-props { list-style: none; padding: 0; margin: 30px 0; }
         .value-props li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 1.1rem; }
 
-        .checkout-card { background: white; padding: 40px; border-radius: 30px; border: 1px solid #eee; box-shadow: 0 30px 60px rgba(0,0,0,0.08); } /* Corrección sticky */
+        .checkout-card { background: white; padding: 40px; border-radius: 30px; border: 1px solid #eee; box-shadow: 0 30px 60px rgba(0,0,0,0.08); margin-bottom: 30px; }
 
-        /* BOTÓN DORADO DE ALTA CONVERSIÓN (MODIFICADO) */
+        /* BOTÓN DORADO DE ALTA CONVERSIÓN */
         .btn-cta { 
             background: var(--accent-gold); 
-            color: var(--brand-blue); /* Texto oscuro para contraste */
+            color: var(--brand-blue); 
             padding: 22px; 
             width: 100%; 
             display: block; 
@@ -101,7 +102,7 @@
             100% { transform: translateX(calc(-350px * 10)); }
         }
 
-        .guarantee-section { background: white; padding: 40px; border-radius: 30px; margin: 40px 0; display: flex; align-items: center; gap: 30px; border: 1px solid #eee; }
+        .guarantee-section { background: white; padding: 40px; border-radius: 30px; margin: 30px 0; display: flex; align-items: center; gap: 30px; border: 1px solid #eee; }
 
         /* Estilos del Acordeón de FAQs */
         .faq-section { max-width: 800px; margin: 60px auto; padding: 0 20px; }
@@ -116,7 +117,7 @@
 
         @media (max-width: 900px) {
             .main-container { grid-template-columns: 1fr; }
-            .product-gallery { position: relative; top: 0; }
+            .content-left { position: relative; top: 0; }
             .checkout-card { position: relative; top: 0; padding: 25px; }
             h1 { font-size: 2.2rem; }
         }
@@ -133,29 +134,16 @@
 </header>
 
 <div class="main-container">
-    <!-- COLUMNA IZQUIERDA: CONTENIDO VISUAL Y VALOR (AIDA) -->
+    <!-- COLUMNA IZQUIERDA: SÓLO IMAGEN FIJA (EVITA DESPLAZAMIENTOS) -->
     <div class="content-left">
         <div class="product-gallery">
-            <img src="https://http2.mlstatic.com/D_NQ_NP_600216-MLA51105373303_082022-O.webp" alt="Nokia 110 4G" class="main-img"> <!-- Usando URL temporal para previsualizar -->
-        </div>
-        
-        <!-- Bloque del Deseo (Fórmula AIDA) -->
-        <div style="margin-top: 40px; padding: 20px 10px;">
-            <h2 style="color: var(--brand-blue); font-weight: 800;">La reinvención de un clásico indestructible</h2>
-            <p style="font-size: 1.1rem; color: #555;">El <strong>Nokia 110 4G</strong> está pensado para quienes buscan practicidad y resistencia real sin complicaciones. Equipado con señal de voz de alta definición (VoLTE) gracias a su potente antena 4G, es el compañero perfecto para el trabajo diario, viajes al interior, o como un segundo teléfono sumamente confiable.</p>
-        </div>
-
-        <div class="guarantee-section">
-            <span style="font-size: 3rem;">🛡️</span>
-            <div>
-                <h3 style="margin:0">Garantía de Satisfacción Total</h3>
-                <p style="margin:5px 0 0 0; color: #666; font-size: 0.95rem;">Tenés 30 días para probar el equipo. Si no cumple tus expectativas, la devolución es 100% gratuita y gestionada por nosotros.</p>
-            </div>
+            <img src="nokia-principal.png" alt="Nokia 110 4G" class="main-img">
         </div>
     </div>
 
-    <!-- COLUMNA DERECHA: ACCIÓN Y CHECKOUT -->
+    <!-- COLUMNA DERECHA: COMPRA, INFORMACIÓN AIDA Y GARANTÍA -->
     <div class="content-right">
+        <!-- Tarjeta de Compra Principal -->
         <div class="checkout-card">
             <div class="badge-verified">✓ Stock Disponible para Envío Inmediato</div>
             <h1>Nokia 110 4G: Calidad y Resistencia Real</h1>
@@ -181,6 +169,21 @@
             <p style="text-align: center; font-size: 0.85rem; color: #888; margin-top: 20px; font-weight: 600;">
                 💳 Pagá de forma segura en Tiendanube con Tarjeta, Transferencia o Efectivo.
             </p>
+        </div>
+
+        <!-- Bloque del Deseo (Fórmula AIDA) -->
+        <div style="margin-bottom: 30px; padding: 10px 0;">
+            <h2 style="color: var(--brand-blue); font-weight: 800;">La reinvención de un clásico indestructible</h2>
+            <p style="font-size: 1.1rem; color: #555;">El <strong>Nokia 110 4G</strong> está pensado para quienes buscan practicidad y resistencia real sin complicaciones. Equipado con señal de voz de alta definición (VoLTE) gracias a su potente antena 4G, es el compañero perfecto para el trabajo diario, viajes al interior, o como un segundo teléfono sumamente confiable.</p>
+        </div>
+
+        <!-- Tarjeta de Garantía -->
+        <div class="guarantee-section">
+            <span style="font-size: 3rem;">🛡️</span>
+            <div>
+                <h3 style="margin:0">Garantía de Satisfacción Total</h3>
+                <p style="margin:5px 0 0 0; color: #666; font-size: 0.95rem;">Tenés 30 días para probar el equipo. Si no cumple tus expectativas, la devolución es 100% gratuita y gestionada por nosotros.</p>
+            </div>
         </div>
     </div>
 </div>
