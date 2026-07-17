@@ -35,11 +35,10 @@
         .logo-box b { font-size: 1.4rem; letter-spacing: 1px; }
         .status-pill { background: var(--accent-gold); color: var(--brand-blue); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; }
 
-        .main-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; }
+        .main-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: start; } /* Corrección sticky */
 
-        .product-gallery { position: sticky; top: 100px; text-align: center; }
+        .product-gallery { position: sticky; top: 120px; text-align: center; } /* Corrección sticky */
         
-        /* Efecto visual interactivo moderno */
         .main-img { 
             width: 100%; 
             max-width: 500px;
@@ -64,12 +63,12 @@
         .value-props { list-style: none; padding: 0; margin: 30px 0; }
         .value-props li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 1.1rem; }
 
-        .checkout-card { background: white; padding: 40px; border-radius: 30px; border: 1px solid #eee; box-shadow: 0 30px 60px rgba(0,0,0,0.08); position: sticky; top: 100px; }
+        .checkout-card { background: white; padding: 40px; border-radius: 30px; border: 1px solid #eee; box-shadow: 0 30px 60px rgba(0,0,0,0.08); } /* Corrección sticky */
 
-        /* Botón Dorado de Alta Conversión */
+        /* BOTÓN DORADO DE ALTA CONVERSIÓN (MODIFICADO) */
         .btn-cta { 
             background: var(--accent-gold); 
-            color: var(--brand-blue); 
+            color: var(--brand-blue); /* Texto oscuro para contraste */
             padding: 22px; 
             width: 100%; 
             display: block; 
@@ -137,7 +136,7 @@
     <!-- COLUMNA IZQUIERDA: CONTENIDO VISUAL Y VALOR (AIDA) -->
     <div class="content-left">
         <div class="product-gallery">
-            <img src="nokia-principal.png" alt="Nokia 110 4G" class="main-img">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_600216-MLA51105373303_082022-O.webp" alt="Nokia 110 4G" class="main-img"> <!-- Usando URL temporal para previsualizar -->
         </div>
         
         <!-- Bloque del Deseo (Fórmula AIDA) -->
@@ -174,7 +173,7 @@
                 <li><b>📞 Doble Ranura SIM:</b> Usá dos líneas en simultáneo sin problemas de operadoras.</li>
             </ul>
 
-            <!-- Botón Optimizado a Tiendanube + Pixel InitiateCheckout -->
+            <!-- Botón Dorado Optimizado a Tiendanube + Pixel InitiateCheckout -->
             <a href="https://quartadimension.mitiendanube.com/productos/nokia-110-4g/" class="btn-cta" onclick="fbq('track', 'InitiateCheckout');">
                 ADQUIRIR AHORA
             </a>
@@ -230,8 +229,6 @@
             <p>"Ideal para desconectarse un poco del smartphone. Muy buena compra."</p>
             <strong>Carla J. ⭐⭐⭐⭐⭐</strong>
         </div>
-        <div class="testimonial-card"><img src="https://randomuser.me/api/portraits/men/32.jpg" class="user-img"><p>"Señal impecable en todo lugar."</p><strong>Roberto M. ⭐⭐⭐⭐⭐</strong></div>
-        <div class="testimonial-card"><img src="https://randomuser.me/api/portraits/women/44.jpg" class="user-img"><p>"Envío súper rápido."</p><strong>Marcela T. ⭐⭐⭐⭐⭐</strong></div>
     </div>
 </section>
 
